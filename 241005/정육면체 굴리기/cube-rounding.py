@@ -6,7 +6,7 @@ directions =  list(map(int, input().split()))
 dice = [0] * 6
 
 def move_east(dice, x, y):
-    if 0 <= x+1 < n:
+    if 0 <= x+1 < m:
     #   0    1    2  3  4   5
         bot, top, west, east, south, north = dice 
         # roll to east 
@@ -16,7 +16,7 @@ def move_east(dice, x, y):
     return dice, x, y, False
 
 def move_west(dice, x, y):
-    if 0 <= x - 1 < n: 
+    if 0 <= x - 1 < m : 
     #   0    1    2  3  4   5
         bot, top, west, east, south, north = dice 
         # roll to west 
@@ -26,7 +26,7 @@ def move_west(dice, x, y):
     return dice, x, y, False
     
 def move_north(dice, x, y):
-    if 0 <= y - 1 < m:
+    if 0 <= y - 1 < n:
         #   0    1    2  3  4   5
         bot, top, west, east, south, north = dice 
         # roll to east 
@@ -36,7 +36,7 @@ def move_north(dice, x, y):
     return dice, x, y, False
 
 def move_south(dice, x, y):
-    if 0 <= y + 1 < m:
+    if 0 <= y + 1 < n:
         #   0    1    2  3  4   5
         bot, top, west, east, south, north = dice 
         # roll to east 
@@ -48,8 +48,10 @@ def move_south(dice, x, y):
 move_funcs = [None, move_east, move_west, move_north, move_south]
 for d in directions:
     dice, x, y, flag = move_funcs[d](dice, x, y)
+    
     if flag == False:
         continue
+
     if board[y][x] == 0:
         board[y][x] = dice[0]
     else:
