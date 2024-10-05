@@ -4,7 +4,7 @@ n, m, x, y, k = map(int, sys.stdin.readline().split())
 board = [list(map(int, input().split())) for _ in range(n)]
 directions =  list(map(int, input().split()))
 dice = [0] * 6
-dx , dy = [0, 0, 0, 1, -1], [0, 1, -1, 0, 0] # arr[y][x] 이렇게 하는 대신 변위를 뒤집자 
+dx , dy = [0, 0, 0, -1, 1], [0, 1, -1, 0, 0] # arr[y][x] 이렇게 하는 대신 변위를 뒤집자 
 
 def is_in_range(x,y):
     return 0<=x and x < n and 0<= y and y<m
