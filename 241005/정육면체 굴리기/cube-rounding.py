@@ -16,7 +16,7 @@ def move_east(dice, x, y):
     return dice, x, y, False
 
 def move_west(dice, x, y):
-    if 0 <= x - 1 < m : 
+    if 0 <= x - 1 < m: 
     #   0    1    2  3  4   5
         bot, top, west, east, south, north = dice 
         # roll to west 
