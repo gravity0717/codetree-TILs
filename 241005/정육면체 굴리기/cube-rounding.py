@@ -48,7 +48,7 @@ def move_south(dice, x, y):
 move_funcs = [None, move_east, move_west, move_north, move_south]
 for d in directions:
     dice, x, y, flag = move_funcs[d](dice, x, y)
-    if flag is False:
+    if flag == False:
         continue
     if board[y][x] == 0:
         board[y][x] = dice[0]
