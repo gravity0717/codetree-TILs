@@ -2,9 +2,6 @@ from collections import deque
 import sys
 import copy
 
-def input():
-    return sys.stdin.readline()
-
 def rotate_3x3(subgrid, angle):
     # Rotate the 3x3 subgrid by the given angle clockwise
     # angle is one of [90, 180, 270]
@@ -48,7 +45,7 @@ def fill_grid(grid, artifacts, wall, wall_ptr):
         for r in reversed(range(5)):
             if grid[r][c] == 0:
                 empty.append((r, c))
-    
+
     # Fill empty positions with wall pieces
     for pos in empty:
         if wall_ptr >= len(wall):
@@ -71,7 +68,6 @@ def simulate(grid, subgrid_top_left, angle, wall, wall_ptr):
             temp_grid[r+i][c+j] = rotated[i][j]
     total_value = 0
     current_wall_ptr = wall_ptr
-
     while True:
         artifacts = find_artifacts(temp_grid)
         if not artifacts:
@@ -126,13 +122,13 @@ def main():
                                 best_c = c
                                 best_grid = new_grid
                                 best_wall_ptr = new_wall_ptr
-        if max_value ==0:
+        if max_value <=0:
             break
         results.append(max_value)
         grid = best_grid
         wall_ptr = best_wall_ptr
+    # 수정된 출력 방식: 결과를 한 줄에 공백으로 구분하여 출력
     print(*results)
-
 
 if __name__ == "__main__":
     main()
