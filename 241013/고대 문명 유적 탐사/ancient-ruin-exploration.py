@@ -71,7 +71,7 @@ def simulate(grid, subgrid_top_left, angle, wall, wall_ptr):
             temp_grid[r+i][c+j] = rotated[i][j]
     total_value = 0
     current_wall_ptr = wall_ptr
-    
+
     while True:
         artifacts = find_artifacts(temp_grid)
         if not artifacts:
@@ -131,8 +131,8 @@ def main():
         results.append(max_value)
         grid = best_grid
         wall_ptr = best_wall_ptr
-    for res in results:
-        print(res)
+    print(*results)
+
 
 if __name__ == "__main__":
     main()
